@@ -21,6 +21,10 @@ async def send_with_rotation(prompt, session_id, system_prompt):
             chat = await get_chat_session(parse_chat_sessions, session_id, system_prompt)
             response = chat.send_message(prompt)
 
+            if '"finish_reason": "STOP"' in str(response):
+               print("Response finished with STOP")
+               continue
+
             return response
 
         except Exception as e:
