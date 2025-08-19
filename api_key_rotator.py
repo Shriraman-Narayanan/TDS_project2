@@ -4,22 +4,11 @@ import time
 import os
 
 # Read environment variable
-api_key1 = os.getenv("GENAI_API_KEY_1")
-api_key2 = os.getenv("GENAI_API_KEY_2")
-api_key3 = os.getenv("GENAI_API_KEY_3")
-api_key4 = os.getenv("GENAI_API_KEY_4")
-api_key5 = os.getenv("GENAI_API_KEY_5")
-api_key6 = os.getenv("GENAI_API_KEY_6")
-api_key7 = os.getenv("GENAI_API_KEY_7")
-api_key8 = os.getenv("GENAI_API_KEY_8")
-api_key9 = os.getenv("GENAI_API_KEY_9")
-api_key10 = os.getenv("GENAI_API_KEY_10")
-api_key11 = os.getenv("GENAI_API_KEY_11")
-
+api_key1 = "AIzaSyBtim744ztyxZmT4Ec4k_wFtt1tlbv6D68"
 
 API_KEYS  = []
 
-for api_key in [api_key1, api_key2, api_key3, api_key4, api_key5, api_key6, api_key7, api_key8, api_key9, api_key10, api_key11]:
+for api_key in [api_key1]:
     if api_key:
         print("API Key found:", api_key)
         API_KEYS.append({"key": api_key, "req_timestamps": []})        
