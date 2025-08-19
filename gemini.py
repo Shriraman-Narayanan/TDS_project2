@@ -2,6 +2,7 @@ import os
 import json
 import google.generativeai as genai
 from api_key_rotator import get_api_key
+import re
 
 
 MODEL_NAME = "gemini-2.5-pro"
@@ -136,7 +137,15 @@ You are an AI Python code generator for multi-step data analysis and processing.
     try:
         return json.loads(response.text)
     except:
-        print(response)
+        # Try to extract the first {...} JSON block
+        match = re.search(r'\{.*\}', response.text, re.S)
+        if match:
+            try:
+                return json.loads(match.group(0))
+            except:
+                pass
+        print("⚠️(gemini.py) Failed to parse response as JSON, returning raw text")
+        return response.text
 
     
 
